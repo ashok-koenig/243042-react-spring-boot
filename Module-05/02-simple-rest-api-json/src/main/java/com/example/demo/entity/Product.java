@@ -1,0 +1,39 @@
+package com.example.demo.entity;
+
+// POJO - Plain old java object - used for JSON to Java Object and Java object to JSON conversion
+// POJO class should have getter/setter methods for all fields
+public class Product {
+    Integer id;
+    String title;
+    Double price;
+
+    public Product(Integer id, String title, Double price) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+}
