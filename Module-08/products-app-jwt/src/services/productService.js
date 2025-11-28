@@ -1,8 +1,12 @@
 import api from "./api";
 
+function getAuthHeaders(){
+    return {headers: {Authorization: "Bearer "+ localStorage.getItem("token")}}
+}
+
 export async function fetchProducts() {
     try{
-        const res = await api.get("/products")
+        const res = await api.get("/products", getAuthHeaders())
         return res.data;
     }catch(err){
         console.log(err)
@@ -12,7 +16,7 @@ export async function fetchProducts() {
 
 export async function createProduct(product) {
     try{
-        const res = await api.post("/products", product)
+        const res = await api.post("/products", product, getAuthHeaders())
         return res.data;
     }catch(err){
         console.log(err)
@@ -22,7 +26,7 @@ export async function createProduct(product) {
 
 export async function deleteProduct(id) {
     try{
-         await api.delete("/products/"+id)
+         await api.delete("/products/"+id, getAuthHeaders())
 
     }catch(err){
         console.log(err)
@@ -33,7 +37,7 @@ export async function deleteProduct(id) {
 
 export async function getProductById(id) {
     try{
-        const res = await api.get("/products/"+id)
+        const res = await api.get("/products/"+id, getAuthHeaders())
         return res.data;
     }catch(err){
         console.log(err)
@@ -43,7 +47,7 @@ export async function getProductById(id) {
 
 export async function updateProduct(id, product) {
     try{
-        const res = await api.put("/products/"+id, product)
+        const res = await api.put("/products/"+id, product, getAuthHeaders())
         return res.data;
     }catch(err){
         console.log(err)
